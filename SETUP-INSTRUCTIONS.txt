@@ -1,0 +1,227 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                    LARABOOK - SETUP GUIDE                         ║
+║                  Created by: Arslan Solehria                      ║
+║                      February 2026                                ║
+╚══════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════
+  QUICK SETUP (5 Steps - 10 Minutes)
+═══════════════════════════════════════════════════════════════════
+
+STEP 1: EXTRACT PROJECT
+────────────────────────────────────────────────────────────────
+  • Extract LaraBook-Complete.zip to your desired location
+  • Navigate to project folder: Vuexy-Library-Auth
+
+
+STEP 2: INSTALL DEPENDENCIES
+────────────────────────────────────────────────────────────────
+  Open terminal in project folder and run:
+
+  composer install
+  npm install
+
+  ⏱️ Time: 5 minutes
+
+
+STEP 3: ENVIRONMENT SETUP
+────────────────────────────────────────────────────────────────
+  Run these commands:
+
+  cp .env.example .env        (Windows: copy .env.example .env)
+  php artisan key:generate
+
+  ✅ Database: SQLite (already configured - no setup needed!)
+
+
+STEP 4: CONFIGURE EMAIL (MAILTRAP)
+────────────────────────────────────────────────────────────────
+  Edit .env file and update these lines:
+
+  MAIL_MAILER=smtp
+  MAIL_HOST=smtp.mailtrap.io
+  MAIL_PORT=2525
+  MAIL_USERNAME=your_mailtrap_username
+  MAIL_PASSWORD=your_mailtrap_password
+
+  📧 Get free account: https://mailtrap.io
+
+
+STEP 5: RUN MIGRATIONS & START
+────────────────────────────────────────────────────────────────
+  php artisan migrate
+  php artisan storage:link
+  php artisan serve
+
+  ✅ Access: http://localhost:8000
+
+
+═══════════════════════════════════════════════════════════════════
+  TESTING THE APPLICATION
+═══════════════════════════════════════════════════════════════════
+
+1. REGISTER NEW ACCOUNT
+   ✅ Go to: http://localhost:8000/register
+   ✅ Fill in details and register
+   ✅ Check Mailtrap inbox for welcome email
+
+2. LOGIN
+   ✅ Use registered credentials
+   ✅ Access dashboard
+
+3. ADD BOOKS
+   ✅ Click "My Books" or "Add Book"
+   ✅ Fill in book details
+   ✅ Save and view in list
+
+4. TEST FORGOT PASSWORD
+   ✅ Logout
+   ✅ Click "Forgot Password?"
+   ✅ Enter email
+   ✅ Check Mailtrap for OTP
+   ✅ Reset password
+
+5. UPDATE PASSWORD FROM PROFILE
+   ✅ Go to Profile
+   ✅ Update password
+   ✅ Check Mailtrap for confirmation
+
+
+═══════════════════════════════════════════════════════════════════
+  PROJECT FEATURES
+═══════════════════════════════════════════════════════════════════
+
+AUTHENTICATION
+  ✅ User Registration
+  ✅ User Login
+  ✅ Forgot Password with OTP
+  ✅ Password Reset
+  ✅ Logout
+
+EMAIL NOTIFICATIONS
+  ✅ Welcome Email (on registration)
+  ✅ Password Reset Email (with OTP)
+  ✅ Password Updated Email (confirmation)
+
+BOOKS MANAGEMENT (CRUD)
+  ✅ Add Books
+  ✅ View Books (user-specific)
+  ✅ Edit Books
+  ✅ Delete Books
+
+PROFILE MANAGEMENT
+  ✅ View Profile Information
+  ✅ Update Password
+  ✅ Email Confirmation on Password Change
+
+
+═══════════════════════════════════════════════════════════════════
+  TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════
+
+ISSUE: "419 Page Expired" Error
+SOLUTION:
+  php artisan config:clear
+  php artisan cache:clear
+  (Then refresh browser with Ctrl+Shift+R)
+
+ISSUE: Email Not Sending
+SOLUTION:
+  • Check Mailtrap credentials in .env file
+  • Verify MAIL_MAILER=smtp
+  • Test connection in Mailtrap dashboard
+
+ISSUE: Database Errors
+SOLUTION:
+  php artisan migrate:fresh
+  (Warning: This will reset database)
+
+ISSUE: Routes Not Working
+SOLUTION:
+  php artisan route:clear
+  php artisan config:clear
+
+
+═══════════════════════════════════════════════════════════════════
+  REQUIREMENTS
+═══════════════════════════════════════════════════════════════════
+
+✅ PHP 8.1 or higher
+✅ Composer
+✅ Node.js 16+ and NPM
+✅ SQLite (included) or MySQL (optional)
+
+
+═══════════════════════════════════════════════════════════════════
+  PROJECT STRUCTURE
+═══════════════════════════════════════════════════════════════════
+
+app/Http/Controllers/
+  ├── AuthController.php        → Authentication logic
+  ├── BookController.php        → Books CRUD operations
+  └── ProfileController.php     → Profile management
+
+app/Mail/
+  ├── WelcomeEmail.php         → Welcome email
+  ├── ResetPasswordEmail.php   → OTP email
+  └── PasswordUpdatedEmail.php → Password change email
+
+resources/views/
+  ├── auth/                     → Login, Register, Forgot Password
+  ├── books/                    → Books CRUD views
+  ├── emails/                   → Email templates
+  ├── profile/                  → Profile page
+  └── dashboard.blade.php       → Main dashboard
+
+database/migrations/
+  ├── create_users_table
+  ├── create_books_table
+  └── create_password_resets_table
+
+
+═══════════════════════════════════════════════════════════════════
+  TECH STACK
+═══════════════════════════════════════════════════════════════════
+
+Backend:  Laravel 12.52.0
+Frontend: Vuexy Template + Bootstrap 5
+Database: SQLite (default) / MySQL (optional)
+Email:    Mailtrap SMTP
+PHP:      8.2.12
+
+
+═══════════════════════════════════════════════════════════════════
+  DEFAULT CREDENTIALS
+═══════════════════════════════════════════════════════════════════
+
+No default credentials - Register new account to start
+
+
+═══════════════════════════════════════════════════════════════════
+  SUPPORT & CONTACT
+═══════════════════════════════════════════════════════════════════
+
+Developer:  Arslan Solehria
+Email:      m.arslanliaqat8787@gmail.com
+Date:       February 2026
+Version:    1.0.0
+
+
+═══════════════════════════════════════════════════════════════════
+  ADDITIONAL NOTES
+═══════════════════════════════════════════════════════════════════
+
+• This project uses SQLite by default - no database server needed
+• All emails go to Mailtrap - configure your account for testing
+• Each user sees only their own books (user-specific data)
+• OTP codes expire after 15 minutes
+• Password must be minimum 8 characters
+• All forms are protected with CSRF tokens for security
+
+
+═══════════════════════════════════════════════════════════════════
+
+Thank you for using LaraBook!
+Built with ❤️ by Arslan Solehria
+
+═══════════════════════════════════════════════════════════════════

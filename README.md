@@ -1,59 +1,461 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 LaraBook - Library Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Created by: Arslan Solehria**  
+**Date: February 2026**  
+**Framework:** Laravel 12.52.0 + Vuexy Admin Template  
+**PHP Version:** 8.2.12
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Features Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🔐 Complete Authentication System
+- ✅ User Registration with Email Verification
+- ✅ User Login with Session Management
+- ✅ Forgot Password with OTP System
+- ✅ Password Reset via Email
+- ✅ Logout Functionality
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 📧 Email Notifications (Mailtrap Integration)
+- ✅ **Welcome Email** - Sent on successful registration
+- ✅ **Password Reset Email** - OTP code for password recovery
+- ✅ **Password Updated Email** - Confirmation after password change
 
-## Learning Laravel
+### 📖 Books Management (Full CRUD)
+- ✅ **Add Books** - Create new book entries
+- ✅ **View Books** - List all books (user-specific filtering)
+- ✅ **Edit Books** - Update book details
+- ✅ **Delete Books** - Remove books from library
+- ✅ **User Ownership** - Each user sees only their own books
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 👤 Profile Management
+- ✅ **View Profile** - Display user information
+- ✅ **Update Password** - Change password with current password verification
+- ✅ **Email Confirmation** - Get notified when password changes
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🎯 Teacher Requirements (All Completed!)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Authentication
+- [x] Signup with email validation
+- [x] Signin with credentials
+- [x] Welcome email on registration
+- [x] Forgot password functionality
+- [x] OTP/Token via email
+- [x] Reset password screen
+- [x] Password update confirmation email
 
-### Premium Partners
+### CRUD Operations
+- [x] Books management
+- [x] User-specific data (only show user's own books)
+- [x] Add, Edit, Delete, View operations
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Profile Management
+- [x] Update password from profile
+- [x] Current password + new password validation
+- [x] Email notification on password change
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🚀 Quick Setup Guide
 
-## Code of Conduct
+### Prerequisites
+```
+✅ PHP 8.1 or higher
+✅ Composer
+✅ Node.js 16+ and NPM
+✅ SQLite (included) or MySQL
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Installation Steps
 
-## Security Vulnerabilities
+#### 1. Extract Project
+```bash
+# Extract the ZIP file to your desired location
+# Navigate to project directory
+cd Vuexy-Library-Auth
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### 2. Install Dependencies
+```bash
+# Install PHP dependencies
+composer install
 
-## License
+# Install Node dependencies
+npm install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### 3. Environment Configuration
+```bash
+# Copy environment file
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+```
+
+#### 4. Configure Database
+The project uses SQLite by default (already configured).
+
+**No additional database setup needed!**
+
+For MySQL (optional):
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=larabook
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+#### 5. Configure Email (Mailtrap)
+Edit `.env` file:
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=your_mailtrap_username
+MAIL_PASSWORD=your_mailtrap_password
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="noreply@larabook.com"
+MAIL_FROM_NAME="LaraBook"
+```
+
+**Get free Mailtrap account:** https://mailtrap.io
+
+#### 6. Run Database Migrations
+```bash
+php artisan migrate
+```
+
+#### 7. Create Storage Link
+```bash
+php artisan storage:link
+```
+
+#### 8. Start Development Servers
+```bash
+# Terminal 1 - Laravel Server
+php artisan serve
+
+# Terminal 2 - Frontend Assets (if needed)
+npm run dev
+```
+
+#### 9. Access Application
+```
+🌐 URL: http://localhost:8000
+📧 Default: Register new account
+```
+
+---
+
+## 📖 Usage Guide
+
+### First Time Setup
+
+1. **Register Account**
+   - Go to: http://localhost:8000/register
+   - Fill in: Name, Email, Password
+   - Check Mailtrap for welcome email ✉️
+
+2. **Login**
+   - Use registered credentials
+   - Access dashboard
+
+3. **Add Books**
+   - Click "Add Book" or "My Books"
+   - Fill in book details
+   - Save to library
+
+4. **Manage Profile**
+   - Click profile/settings
+   - Update password if needed
+   - Check email for confirmation
+
+### Testing Forgot Password
+
+1. Click "Forgot Password?" on login
+2. Enter registered email
+3. Check Mailtrap for OTP code
+4. Enter OTP + new password
+5. Login with new password
+
+---
+
+## 🗂️ Project Structure
+
+```
+Vuexy-Library-Auth/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── AuthController.php         # Authentication logic
+│   │   ├── BookController.php         # Books CRUD
+│   │   └── ProfileController.php      # Profile management
+│   ├── Mail/
+│   │   ├── WelcomeEmail.php          # Welcome email
+│   │   ├── ResetPasswordEmail.php    # OTP email
+│   │   └── PasswordUpdatedEmail.php  # Password change email
+│   └── Models/
+│       ├── User.php                   # User model
+│       └── Book.php                   # Book model
+├── database/
+│   ├── migrations/
+│   │   ├── create_users_table.php
+│   │   ├── create_books_table.php
+│   │   └── create_password_resets_table.php
+│   └── database.sqlite                # SQLite database
+├── resources/
+│   └── views/
+│       ├── auth/
+│       │   ├── login.blade.php
+│       │   ├── register.blade.php
+│       │   ├── forgot-password.blade.php
+│       │   └── reset-password.blade.php
+│       ├── books/
+│       │   ├── index.blade.php        # Books list
+│       │   ├── create.blade.php       # Add book
+│       │   └── edit.blade.php         # Edit book
+│       ├── emails/
+│       │   ├── welcome.blade.php
+│       │   ├── reset-password.blade.php
+│       │   └── password-updated.blade.php
+│       ├── profile/
+│       │   └── index.blade.php        # Profile page
+│       └── dashboard.blade.php
+├── routes/
+│   └── web.php                        # All application routes
+├── public/
+│   └── assets/                        # Vuexy template assets
+├── .env.example                       # Environment template
+├── composer.json                      # PHP dependencies
+├── package.json                       # Node dependencies
+└── README.md                          # This file
+```
+
+---
+
+## 🎨 Tech Stack
+
+### Backend
+- **Framework:** Laravel 12.52.0
+- **PHP:** 8.2.12
+- **Database:** SQLite (default) / MySQL (optional)
+- **Authentication:** Laravel built-in
+
+### Frontend
+- **Template:** Vuexy Admin Template
+- **CSS Framework:** Bootstrap 5
+- **Icons:** Bootstrap Icons
+
+### Email
+- **Service:** Mailtrap (SMTP)
+- **Templates:** Blade (HTML emails)
+
+---
+
+## 📊 Database Schema
+
+### Users Table
+```sql
+- id (Primary Key)
+- name
+- email (Unique)
+- password (Hashed)
+- created_at
+- updated_at
+```
+
+### Books Table
+```sql
+- id (Primary Key)
+- title
+- author
+- description
+- image
+- price
+- stock
+- user_id (Foreign Key → users)
+- created_at
+- updated_at
+```
+
+### Password Resets Table
+```sql
+- id (Primary Key)
+- email
+- token (OTP)
+- created_at
+```
+
+---
+
+## 🔒 Security Features
+
+- ✅ Password Hashing (Bcrypt)
+- ✅ CSRF Protection on all forms
+- ✅ SQL Injection Prevention (Eloquent ORM)
+- ✅ XSS Protection (Blade templating)
+- ✅ Session Management
+- ✅ OTP Expiry (15 minutes)
+- ✅ User-specific data isolation
+
+---
+
+## 🧪 Testing
+
+### Manual Testing Checklist
+
+**Authentication Flow:**
+```
+✅ Register → Welcome Email
+✅ Login → Dashboard Access
+✅ Logout → Redirect to Login
+✅ Forgot Password → OTP Email
+✅ Reset Password → Success Message
+✅ Invalid Credentials → Error Message
+```
+
+**Books CRUD:**
+```
+✅ Add Book → Success & List Updated
+✅ View Books → Only user's books shown
+✅ Edit Book → Changes Saved
+✅ Delete Book → Removed from List
+✅ User Isolation → Can't see other users' books
+```
+
+**Profile Management:**
+```
+✅ View Profile → User Info Displayed
+✅ Update Password → Email Sent
+✅ Wrong Current Password → Error
+✅ Password Mismatch → Validation Error
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**1. 419 Page Expired Error**
+```bash
+php artisan config:clear
+php artisan cache:clear
+```
+
+**2. Email Not Sending**
+- Check Mailtrap credentials in `.env`
+- Verify MAIL_MAILER=smtp
+- Test connection in Mailtrap dashboard
+
+**3. Database Migration Errors**
+```bash
+php artisan migrate:fresh
+```
+
+**4. Storage Link Issues**
+```bash
+php artisan storage:link
+```
+
+**5. Routes Not Working**
+```bash
+php artisan route:clear
+php artisan config:clear
+```
+
+---
+
+## 📝 API Endpoints
+
+### Authentication Routes
+```
+GET  /login                    - Login page
+POST /login                    - Login submit
+GET  /register                 - Register page
+POST /register                 - Register submit
+POST /logout                   - Logout
+GET  /forgot-password          - Forgot password page
+POST /forgot-password          - Send OTP
+GET  /reset-password           - Reset password page
+POST /reset-password           - Update password
+```
+
+### Books Routes (Protected)
+```
+GET  /books                    - List all books
+GET  /books/create             - Add book form
+POST /books                    - Store new book
+GET  /books/{id}/edit          - Edit book form
+PUT  /books/{id}               - Update book
+DELETE /books/{id}             - Delete book
+```
+
+### Profile Routes (Protected)
+```
+GET  /profile                  - Profile page
+POST /profile/update-password  - Update password
+```
+
+---
+
+## 🎓 Learning Points
+
+### Laravel Concepts Covered
+1. ✅ **MVC Architecture** - Models, Views, Controllers
+2. ✅ **Eloquent ORM** - Database queries
+3. ✅ **Blade Templates** - Frontend rendering
+4. ✅ **Migrations** - Database version control
+5. ✅ **Authentication** - User management
+6. ✅ **Middleware** - Route protection
+7. ✅ **Mailable Classes** - Email handling
+8. ✅ **Form Validation** - Input validation
+9. ✅ **CSRF Protection** - Security
+10. ✅ **Relationships** - User-Book association
+
+---
+
+## 📧 Contact & Support
+
+**Developer:** Arslan Solehria  
+**Email:** m.arslanliaqat8787@gmail.com  
+**Date:** February 2026  
+**Version:** 1.0.0
+
+---
+
+## 📄 License
+
+This project is created for educational purposes.
+
+---
+
+## 🎉 Acknowledgments
+
+- **Laravel Framework** - Excellent PHP framework
+- **Vuexy Template** - Beautiful admin template
+- **Mailtrap** - Email testing service
+- **Bootstrap** - CSS framework
+
+---
+
+## 🚀 Future Enhancements (Optional)
+
+- [ ] Book categories
+- [ ] Book images upload
+- [ ] Advanced search & filters
+- [ ] Reading list/wishlist
+- [ ] Book reviews & ratings
+- [ ] Export data to PDF
+- [ ] Email verification
+- [ ] Social login
+
+---
+
+**© 2026 Arslan Solehria - LaraBook Project**
+
+**Built with ❤️ using Laravel & Vuexy**
